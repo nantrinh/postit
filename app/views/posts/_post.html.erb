@@ -13,7 +13,7 @@
       </main>
   
       <footer class='card-footer'>
-        <%= "#{post.user.username} #{post.created_at}" %>
+        <%= "#{post.creator.username} #{post.created_at}" %>
         <nav class='btn-group mt-auto'>
           <%= button_to 'View', post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary' %>
         </nav>

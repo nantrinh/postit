@@ -5,6 +5,6 @@
   <h1 class='jumbotron-heading'><%= title %></h1>
   <% if post %>
     <p><%= post.url %></p>
-    <p><%= "#{post.user.username} #{post.created_at}" %></p>
+    <p><%= "#{post.creator.username} #{post.created_at}" %></p>
   <% end %>
 </section>
