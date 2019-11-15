@@ -1,0 +1,23 @@
+<article class='card bg-light m-3 post'>
+  <div class='row no-gutters h-100'>
+    <section>
+      <header class='card-header'>
+        <h5><%= post.title %></h5>
+      </header>
+  
+      <main class='card-body'>
+        <%= post.url %>
+        <p class='card-text'>
+          <%= post.description %>
+        </p>
+      </main>
+  
+      <footer class='card-footer'>
+        <%= "#{post.user.username} #{post.created_at}" %>
+        <nav class='btn-group mt-auto'>
+          <%= button_to 'View', post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary' %>
+        </nav>
+      </footer>
+    </section>
+  </div>
+</article>
