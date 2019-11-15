@@ -1,0 +1,18 @@
+<%= render 'shared/errors', obj: @post %>
+<section class='container'>
+  <%= form_with(model: @post, local: true, html: {autocomplete: 'off'}) do |f| %>
+    <div class='form-group'>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control w-50' %>
+    </div>
+    <div class='form-group'>
+      <%= f.label :url, 'URL' %>
+      <%= f.text_field :url, class: 'form-control w-50' %>
+    </div>
+    <div class='form-group'>
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 5, class: 'form-control w-50' %>
+    </div>
+    <%= f.submit(options={class: "btn btn-outline-primary mt-3"}) %>
+  <% end %>
+</section>
