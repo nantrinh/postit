@@ -1,0 +1,5 @@
+<%= render 'shared/header', title: @post.title, post: @post %>
+
+<section class='container justify-content-center'>
+  <p><%= simple_format(@post.description) %></p>
+</section>
