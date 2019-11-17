@@ -1,18 +1,18 @@
-.card {
-  &.post {
+.post {
+  &.card {
     width: 18rem;
     height: 26rem;
   }
-}
 
-.card-header {
-  height: 5rem;
-}
+  .card-header {
+    height: 5rem;
+  }
 
-.card-body {
-  height: 15rem;
-}
+  .card-body {
+    height: 15rem;
+  }
 
-.card-footer {
+  .card-footer {
   height: 6rem;
+  }
 }
