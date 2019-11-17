@@ -4,7 +4,7 @@
   </header>
 
   <main class='card-body'>
-    <%= post.url %>
+    <%= link_to(body=fix_url(post.url), url=fix_url(post.url)) %>
     <p class='card-text'>
       <%= post.description %>
     </p>
