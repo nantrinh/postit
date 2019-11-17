@@ -1,0 +1,9 @@
+<article class="card bg-light mb-3" style="max-width: 18rem;">
+  <main class="card-body">
+    <p class="card-text"><%= comment.body %></p>
+  </main>
+  
+  <footer class='card-footer'>
+    <%= "#{comment.creator.username} #{comment.created_at}" %>
+  </footer>
+</article>
