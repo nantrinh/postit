@@ -19,11 +19,31 @@
       <li class='nav-item'>
         <%= link_to 'Categories', categories_path, class: 'nav-link' %>
       </li>
-      <li class='nav-item'>
-        <%= link_to 'New Post', new_post_path, class: 'nav-link' %>
-      </li>
-      <li class='nav-item'>
-        <%= link_to 'New Category', new_category_path, class: 'nav-link' %>
-      </li>
+      <% if logged_in? %>
+        <li class='nav-item'>
+          <%= link_to 'New Post', new_post_path, class: 'nav-link' %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to 'New Category', new_category_path, class: 'nav-link' %>
+        </li>
+      <% end %>
+    </ul>
+
+    <ul class='navbar-nav flex-row ml-md-auto d-none d-md-flex'>
+      <% if logged_in? %>
+        <li class='nav-item'>
+          <%= link_to 'Log Out', logout_path, class: 'nav-link' %>
+        </li>
+        <li>
+          <%= link_to 'Profile', user_path(current_user.id), class: 'nav-link text-right' %>
+        </li>
+      <% else %>
+        <li class='nav-item'>
+          <%= link_to 'Register', register_path, class: 'nav-link' %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to 'Log In', login_path, class: 'nav-link' %>
+        </li>
+      <% end %>
     </ul>
 </nav>
