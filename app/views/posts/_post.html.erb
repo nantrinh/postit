@@ -11,7 +11,7 @@
   </main>
 
   <footer class='card-footer'>
-    <%= "#{post.creator.username} #{post.created_at}" %>
+    <%= render 'shared/creator_details', obj: post %>
     <nav class='btn-group mt-auto'>
       <%= button_to 'View', post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary' %>
       <%= button_to 'Edit', edit_post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary border-left-0' %>

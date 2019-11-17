@@ -4,6 +4,6 @@
   </main>
   
   <footer class='card-footer'>
-    <%= "#{comment.creator.username} #{comment.created_at}" %>
+    <%= render 'shared/creator_details', obj: comment %>
   </footer>
 </article>
