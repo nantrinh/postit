@@ -1,12 +1,12 @@
 <article class='card bg-light m-3 post'>
   <header class='card-header'>
-    <h5><%= post.title %></h5>
+    <h5><%= truncate(post.title, length: 50) %></h5>
   </header>
 
   <main class='card-body'>
-    <%= link_to(body=fix_url(post.url), url=fix_url(post.url)) %>
+    <%= render 'posts/post_url', post: post, card: true %>
     <p class='card-text'>
-      <%= post.description %>
+      <%= simple_format(truncate(restrict_newlines(post.description, 5), length: 130)) %>
     </p>
   </main>
 
