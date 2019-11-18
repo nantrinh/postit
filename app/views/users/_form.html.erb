@@ -1,5 +1,5 @@
 <div class='container'>
-  <%= form_with(model: @user, local: true) do |f| %>
+  <%= form_with(model: @user, local: true, html: {autocomplete: off}) do |f| %>
     <%= render 'shared/errors', obj: @user %>
     <div class='form-group'>
       <%= f.label :username %>
