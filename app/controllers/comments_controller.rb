@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
+  before_action :require_user
+
   def create
     @post = Post.find(params[:post_id])
 
     @comment = @post.comments.new(comment_params)
 
-    # TODO: set to current user when user authentication is added
-    @user = User.find_by username: 'Test' 
-    @comment.creator = @user
+    @comment.creator = current_user
 
     if @comment.save
       flash[:notice] = 'Your comment was added.'

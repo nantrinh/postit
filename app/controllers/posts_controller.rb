@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
+  before_action :require_user, except: [:show, :index]
 
   def index
     @posts = Post.all.sort_by {|post| post.created_at}
@@ -11,8 +12,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
-    @post.creator = User.find_by username: 'Test' 
+    @post.creator = current_user
 
     if @post.save
       flash[:notice] = 'Your post was created.'
