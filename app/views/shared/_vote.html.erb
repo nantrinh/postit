@@ -6,20 +6,22 @@
   <% url_false = vote_post_comment_path(obj.post, obj, vote: false) %>
 <% end %>
 
-<% if !current_user || obj.votes.where(user_id: current_user.id, vote: true).empty? %>
-  <%= link_to url_true, method: 'post', remote: true do %>
-    <%= fa_icon 'arrow-up' %>
+<span class='upvote'>
+  <% if !current_user || obj.votes.where(user_id: current_user.id, vote: true).empty? %>
+    <%= link_to url_true, method: 'post', remote: true do %>
+      <%= fa_icon 'arrow-up' %>
+    <% end %>
+  <% else %>
+    <%= fa_icon 'arrow-up', class: 'disabled' %>
   <% end %>
-<% else %>
-  <%= fa_icon 'arrow-up', class: 'disabled' %>
-<% end %>
-</br>
-<%= obj.total_votes %>
-</br>
-<% if !current_user || obj.votes.where(user_id: current_user.id, vote: false).empty? %>
-  <%= link_to url_false, method: 'post', remote: true do %>
-    <%= fa_icon 'arrow-down' %>
+</span>
+<div id='<%= obj.class %>_<%= obj.id %>_votes'><%= obj.total_votes %></div>
+<span class='downvote'>
+  <% if !current_user || obj.votes.where(user_id: current_user.id, vote: false).empty? %>
+    <%= link_to url_false, method: 'post', remote: true do %>
+      <%= fa_icon 'arrow-down' %>
+    <% end %>
+  <% else %>
+    <%= fa_icon 'arrow-down', class: 'disabled' %>
   <% end %>
-<% else %>
-  <%= fa_icon 'arrow-down', class: 'disabled' %>
-<% end %>
+</span>

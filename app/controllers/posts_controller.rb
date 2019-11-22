@@ -48,7 +48,15 @@ class PostsController < ApplicationController
     else
       existing_votes.first.update(vote: params[:vote])
     end
-    redirect_back fallback_location: root_path
+
+    @upvote = params[:vote]
+
+    respond_to do |format|
+      format.html do
+        redirect_back fallback_location: root_path
+      end
+      format.js
+    end
   end
 
   private
