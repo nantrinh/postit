@@ -1,0 +1,12 @@
+$total_votes = $('#<%= @comment.class %>_<%= @comment.id %>_votes');
+$total_votes.text(<%= @comment.total_votes %>);
+$upvote = $total_votes.siblings('.upvote');
+$downvote = $total_votes.siblings('.downvote');
+
+if (<%= @upvote %>) {
+  $upvote.html('<i><i class="fas fa fa-arrow-up disabled"></i>');
+  $downvote.html('<%= link_to(vote_post_comment_path(@comment, vote: false), method: 'post', remote: true) {|x| fa_icon 'arrow-down'} %>');
+} else {
+  $downvote.html('<i><i class="fas fa fa-arrow-down disabled"></i>');
+  $upvote.html('<%= link_to(vote_post_comment_path(@comment, vote: true), method: 'post', remote: true) {|x| fa_icon 'arrow-up'} %>');
+}

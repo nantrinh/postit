@@ -9,5 +9,4 @@ if (<%= @upvote %>) {
 } else {
   $downvote.html('<i><i class="fas fa fa-arrow-down disabled"></i>');
   $upvote.html('<%= link_to(vote_post_path(@post, vote: true), method: 'post', remote: true) {|x| fa_icon 'arrow-up'} %>');
-
 }
