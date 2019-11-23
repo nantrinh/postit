@@ -32,6 +32,8 @@ gem 'bootstrap', '~>4.3.1'
 gem 'font_awesome5_rails'
 gem 'bcrypt'
 
+gem 'voteable_nancy', '~> 0.0.1', path: '/home/nancy/Documents/voteable_gem'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
