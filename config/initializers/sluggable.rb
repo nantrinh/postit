@@ -2,7 +2,7 @@ module Sluggable
   extend ActiveSupport::Concern
 
   included do
-    after_save :generate_slug!
+    before_save :generate_slug!
     # expose a class attribute that we can set per class that we include Sluggable in
     class_attribute :slug_column
   end
@@ -17,9 +17,10 @@ module Sluggable
     slug = to_slug(self.send(self.class.slug_column.to_sym))
     obj = self.class.find_by slug: slug
     if obj && obj != self
-      slug += next_number(slug).to_s 
+      self.slug = next_slug(slug)
+    else
+      self.slug = slug
     end
-    self.slug = slug
   end
   
   def to_slug(str)
@@ -29,15 +30,16 @@ module Sluggable
     str.downcase
   end
 
-  def next_number(slug)
+  def next_slug(slug)
     number = 1
-    slug = "{slug}-{number}"
+    new_slug = ''
     loop do
-      obj = self.class.find_by slug: slug 
+      new_slug = "#{slug}-#{number}"
+      obj = self.class.find_by slug: new_slug 
       break if obj.nil?
       number += 1
     end
-    number
+    new_slug 
   end
 
   module ClassMethods
