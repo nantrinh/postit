@@ -3,4 +3,7 @@ class Category < ApplicationRecord
   has_many :posts , through: :post_categories
 
   validates :name, presence: true, uniqueness: true
+
+  include Sluggable
+  sluggable_column :name
 end

@@ -15,7 +15,11 @@
     <%= fa_icon 'arrow-up', class: 'disabled' %>
   <% end %>
 </span>
-<div id='<%= obj.class %>_<%= obj.id %>_votes'><%= obj.total_votes %></div>
+<% if obj.class == Post %>
+  <div id='<%= obj.class %>_<%= obj.slug %>_votes'><%= obj.total_votes %></div>
+<% else %>
+  <div id='<%= obj.class %>_<%= obj.id %>_votes'><%= obj.total_votes %></div>
+<% end %>
 <span class='downvote'>
   <% if !current_user || obj.votes.where(user_id: current_user.id, vote: false).empty? %>
     <%= link_to url_false, method: 'post', remote: true do %>

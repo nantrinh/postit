@@ -1,4 +1,4 @@
-$total_votes = $('#<%= @post.class %>_<%= @post.id %>_votes');
+$total_votes = $('#<%= @post.class %>_<%= @post.slug %>_votes');
 $total_votes.text(<%= @post.total_votes %>);
 $upvote = $total_votes.siblings('.upvote');
 $downvote = $total_votes.siblings('.downvote');

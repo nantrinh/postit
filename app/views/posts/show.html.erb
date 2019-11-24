@@ -21,7 +21,7 @@
     <% if @post.comments.empty? %>
       <p class="text-muted">There aren't any comments for this post.</p>
     <% else %>
-      <% @post.comments.each do |comment| %>
+      <% @post.reload.comments.each do |comment| %>
         <%= render 'comments/comment', comment: comment %>
       <% end %>
     <% end %>

@@ -1,3 +1,8 @@
+PATH
+  remote: /home/nancy/Documents/voteable_gem
+  specs:
+    voteable_nancy (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -187,7 +192,6 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    voteable_nancy (0.0.1)
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -229,7 +233,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
-  voteable_nancy (~> 0.0.1)
+  voteable_nancy (~> 0.0.1)!
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
