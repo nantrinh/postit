@@ -1,1 +1,4 @@
-<p><small class="text-muted"><%= link_to(obj.creator.username, user_path(obj.creator.id)) + " #{display_datetime(obj.created_at)}" %></small></p>
+<% user_url = user_path(obj.creator.id) %>
+<% created_at = display_datetime(obj.created_at) %>
+
+<p><small class="text-muted"><%= link_to(obj.creator.username, user_url) +  created_at %></small></p>
