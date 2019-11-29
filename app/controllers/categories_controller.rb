@@ -22,7 +22,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find_by slug: params[:id]
+    #@category = Category.find_by slug: params[:id]
+    @category = Category.find params[:id]
   end
 
   private

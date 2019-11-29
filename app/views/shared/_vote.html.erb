@@ -16,7 +16,7 @@
   <% end %>
 </span>
 <% if obj.class == Post %>
-  <div id='<%= obj.class %>_<%= obj.slug %>_votes'><%= obj.total_votes %></div>
+  <div id='<%= obj.class %>_<%= obj.id%>_votes'><%= obj.total_votes %></div>
 <% else %>
   <div id='<%= obj.class %>_<%= obj.id %>_votes'><%= obj.total_votes %></div>
 <% end %>
