@@ -9,6 +9,6 @@ class Post < ActiveRecord::Base
   validates :description, presence: true
 
   include Voteable
-#  include Sluggable
-#  sluggable_column :title
+  include Sluggable
+  sluggable_column :title
 end

@@ -6,6 +6,8 @@
   <% url_false = vote_post_comment_path(obj.post, obj, vote: false) %>
 <% end %>
 
+<% obj_identifier = (obj.class == Post ? obj.slug : obj.id) %>
+
 <span class='upvote'>
   <% if !current_user || obj.votes.where(user_id: current_user.id, vote: true).empty? %>
     <%= link_to url_true, method: 'post', remote: true do %>
@@ -15,11 +17,7 @@
     <%= fa_icon 'arrow-up', class: 'disabled' %>
   <% end %>
 </span>
-<% if obj.class == Post %>
-  <div id='<%= obj.class %>_<%= obj.id%>_votes'><%= obj.total_votes %></div>
-<% else %>
-  <div id='<%= obj.class %>_<%= obj.id %>_votes'><%= obj.total_votes %></div>
-<% end %>
+<div id='<%= obj.class %>_<%= obj_identifier %>_votes'><%= obj.total_votes %></div>
 <span class='downvote'>
   <% if !current_user || obj.votes.where(user_id: current_user.id, vote: false).empty? %>
     <%= link_to url_false, method: 'post', remote: true do %>
