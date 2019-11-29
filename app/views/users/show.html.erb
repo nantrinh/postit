@@ -1,4 +1,4 @@
-<%= render 'shared/header', title: @user.username, user: @user == current_user %>
+<%= render 'shared/header', title: @user.username, obj: @user %>
 
 <section class='container'>
   <% number_of_posts = @user.posts.empty? ? 0 : @user.posts.size %>

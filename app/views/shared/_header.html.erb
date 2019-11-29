@@ -1,14 +1,28 @@
-<% post ||= nil %>
-<% user ||= nil %>
+<% obj ||= nil %>
+<% can_edit ||= nil %>
+
+<% if obj.class == Post %>
+  <% title = obj.title %>
+  <% edit_url = edit_post_path(obj.slug)%>
+  <% can_edit = (current_user == obj.creator)%>
+<% elsif obj.class == User %>
+  <% title = obj.username %>
+  <% edit_url = edit_user_path(obj.id)%>
+  <% can_edit = (current_user == obj)%>
+<% end %>
 
 <%= render 'shared/nav' %>
 <section class='jumbotron text-center'>
   <h1 class='jumbotron-heading'><%= title %></h1>
-  <% if post %>
-    <%= render 'post_url', post: post %>
-    <%= render 'shared/creator_details', obj: post %>
-  <% elsif user %>
-    <%= link_to 'Edit', edit_user_path(current_user.id) %>
+
+  <% if obj.class == Post %>
+    <%= render 'post_url', post: obj %>
+    <%= render 'shared/creator_details', obj: obj %>
   <% end %>
+
+  <% if can_edit %>
+    <%= link_to 'Edit', edit_url %>
+  <% end %>
+
 </section>
 <%= render 'shared/flash' %>
