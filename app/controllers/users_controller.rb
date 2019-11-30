@@ -41,9 +41,6 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @user
-      flash[:error] = 'You are not allowed to do that.'
-      redirect_to root_path
-    end
+    access_denied unless current_user == @user
   end
 end

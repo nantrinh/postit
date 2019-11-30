@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :vote]
   before_action :require_user, except: [:show, :index]
-  before_action :require_same_user, only: [:edit, :update]
+  before_action :require_creator_or_admin, only: [:edit, :update] 
 
   def index
     @posts = Post.all.sort_by {|post| post.created_at}
@@ -69,10 +69,7 @@ class PostsController < ApplicationController
     @post = Post.find_by slug: params[:id]
   end
 
-  def require_same_user
-    if current_user != @post.creator
-      flash[:error] = 'You are not allowed to do that.'
-      redirect_to root_path
-    end
+  def require_creator_or_admin
+    access_denied unless logged_in? && (current_user == @post.creator || current_user.admin?)
   end
 end

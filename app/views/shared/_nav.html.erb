@@ -23,9 +23,11 @@
         <li class='nav-item'>
           <%= link_to 'New Post', new_post_path, class: 'nav-link' %>
         </li>
-        <li class='nav-item'>
-          <%= link_to 'New Category', new_category_path, class: 'nav-link' %>
-        </li>
+        <% if current_user.admin? %>
+          <li class='nav-item'>
+            <%= link_to 'New Category', new_category_path, class: 'nav-link' %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
 

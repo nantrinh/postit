@@ -1,4 +1,4 @@
 <% user_url = user_path(obj.creator.slug) %>
-<% created_at = display_datetime(obj.created_at) %>
+<% created_at = " #{display_datetime(obj.created_at)}" %>
 
 <p><small class="text-muted"><%= link_to(obj.creator.username, user_url) +  created_at %></small></p>
