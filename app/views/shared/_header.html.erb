@@ -7,7 +7,7 @@
   <% can_edit = (current_user == obj.creator)%>
 <% elsif obj.class == User %>
   <% title = obj.username %>
-  <% edit_url = edit_user_path(obj.id)%>
+  <% edit_url = edit_user_path(obj.slug)%>
   <% can_edit = (current_user == obj)%>
 <% end %>
 
