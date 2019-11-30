@@ -20,6 +20,10 @@
     <%= render 'shared/creator_details', obj: obj %>
   <% end %>
 
+  <% if obj.class == User %>
+    <p><%= obj.time_zone || Time.zone.name %></p> 
+  <% end %>
+
   <% if can_edit %>
     <%= link_to 'Edit', edit_url %>
   <% end %>
