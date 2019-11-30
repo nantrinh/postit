@@ -4,6 +4,6 @@ class Category < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-#  include Sluggable
-#  sluggable_column :name
+  include Sluggable
+  sluggable_column :name
 end
