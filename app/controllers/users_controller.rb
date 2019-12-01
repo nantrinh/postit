@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
-    @user.time_zone = "Pacific Time (US & Canada)"
+    @user.time_zone = user_params[:time_zone]
+#    @user.time_zone = "Pacific Time (US & Canada)"
   
     if @user.save
       session[:user_id] = @user.id
@@ -34,8 +35,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    #params.require(:user).permit(:username, :password, :time_zone)  
-    params.require(:user).permit(:username, :password)  
+    params.require(:user).permit(:username, :password, :time_zone)  
   end
 
   def set_user
