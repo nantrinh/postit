@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
-#    @user.time_zone = user_params[:time_zone]
   
     if @user.save
       session[:user_id] = @user.id
