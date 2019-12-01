@@ -33,7 +33,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :time_zone)  
+    #params.require(:user).permit(:username, :password, :time_zone)  
+    params.require(:user).permit(:username, :password)  
   end
 
   def set_user
